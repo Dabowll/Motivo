@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Motivo — Driving knowledge, made clear</title>
+<style>
+:root{--bg:#f3f6fb;--card:#fff;--ink:#0f1b3d;--mut:#5a6784;--line:#dde4f0;--pri:#1d4ed8;--dk:#0b2a6f;--soft:#e8efff;--warn:#fff3e6;--warnink:#9a4a00;--ok:#e6f6ec;--okink:#166534;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0a1226;--card:#121c38;--ink:#e8edf9;--mut:#9aa7c4;--line:#243256;--pri:#6d9bff;--dk:#0b2a6f;--soft:#182750;--warn:#3a2810;--warnink:#ffc27a;--ok:#12301f;--okink:#7ee2a0}}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:60px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.5}
+a{color:var(--pri)}
+nav{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);display:flex;gap:18px;align-items:center;padding:12px 20px;overflow-x:auto;white-space:nowrap;font-size:14px}
+nav b{display:flex;align-items:center;gap:8px;margin-right:auto}
+nav a{color:var(--mut);text-decoration:none}nav a:hover{color:var(--pri)}
+.logo{background:var(--dk);color:#fff;width:26px;height:26px;border-radius:7px;display:inline-grid;place-items:center;font-weight:700;font-size:14px}
+section{max-width:1040px;margin:0 auto;padding:64px 20px}
+.eye{font:600 12px ui-monospace,Menlo,monospace;letter-spacing:.12em;color:var(--pri);text-transform:uppercase}
+h1{font-size:clamp(44px,8vw,76px);margin:8px 0;letter-spacing:-.03em;line-height:1}
+h2{font-size:clamp(28px,4.5vw,40px);margin:6px 0 28px;letter-spacing:-.02em;line-height:1.15}
+p{margin:0 0 12px}.mut{color:var(--mut)}
+.grid{display:grid;gap:16px}.g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}.g3{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+.card h3{margin:0 0 6px;font-size:17px}.card p{font-size:14px;color:var(--mut);margin:0}
+.hero{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
+@media(max-width:800px){.hero{grid-template-columns:1fr}}
+.btn{display:inline-block;background:var(--dk);color:#fff;border:0;border-radius:999px;padding:12px 22px;font:600 15px inherit;text-decoration:none;cursor:pointer}
+.team{font-size:14px;margin-top:22px}.team small{display:block;letter-spacing:.1em;color:var(--mut);font-weight:600}
+.stat{font-size:52px;font-weight:700;color:var(--pri);letter-spacing:-.03em;line-height:1}
+.q{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 16px;margin-bottom:10px;font-style:italic}
+.band{background:var(--dk);color:#fff;border-radius:18px;padding:22px 26px;margin-top:20px;display:flex;gap:14px;justify-content:space-between;align-items:center;flex-wrap:wrap}
+.band span.tag{background:#fff;color:var(--dk);border-radius:999px;padding:6px 14px;font-weight:600;font-size:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:5px 12px;font-size:13px}
+.note{background:var(--warn);color:var(--warnink);border-radius:12px;padding:12px 16px;font-size:14px;margin-top:16px}
+.tbl{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:16px}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:560px}
+th{background:var(--dk);color:#fff;text-align:left;padding:10px 14px}td{padding:10px 14px;border-top:1px solid var(--line);vertical-align:top}
+td:first-child{font-weight:600}
+.dark{background:var(--dk);color:#fff;border-radius:18px;padding:24px}
+.dark ol{padding-left:20px;margin:10px 0}
+/* phone */
+.phone{width:290px;max-width:100%;height:560px;margin:0 auto;background:#fff;color:#0f1b3d;border:8px solid #0b1430;border-radius:38px;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 20px 50px rgba(11,42,111,.28);font-size:13px}
+.ph-top{padding:12px 16px 6px;display:flex;justify-content:space-between;font-weight:600;font-size:12px}
+.ph-body{flex:1;overflow-y:auto;padding:6px 14px 10px;display:flex;flex-direction:column;gap:8px}
+.ph-tabs{display:flex;border-top:1px solid #dde4f0}
+.ph-tabs button{flex:1;border:0;background:none;padding:10px 0 12px;font:600 10px inherit;color:#5a6784;cursor:pointer}
+.ph-tabs button.on{color:#1d4ed8;box-shadow:inset 0 2px #1d4ed8}
+.ph h4{margin:0;font-size:20px}
+.tile{border:1px solid #dde4f0;border-radius:12px;padding:10px;background:#f6f8fd;cursor:pointer;text-align:left;font:inherit;color:inherit}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.tile b{display:block}
+.bub{padding:9px 12px;border-radius:14px;max-width:92%}
+.me{background:#1d4ed8;color:#fff;align-self:flex-end;border-bottom-right-radius:4px}
+.ai{background:#eef2fb;border-bottom-left-radius:4px}
+.src{display:inline-block;margin-top:6px;font-size:11px;background:#e8efff;color:#1d4ed8;border-radius:8px;padding:2px 8px}
+.sug{border:1px solid #c9d6f3;background:#fff;color:#1d4ed8;border-radius:999px;padding:7px 12px;font:600 12px inherit;cursor:pointer;text-align:left}
+.sign{border:3px solid #166534;border-radius:10px;padding:6px 14px;text-align:center;align-self:center;font-weight:700}
+.sign big{font-size:28px;display:block;color:#166534}
+.opt{border:1.5px solid #dde4f0;background:#fff;border-radius:10px;padding:9px 12px;text-align:left;font:inherit;color:inherit;cursor:pointer}
+.opt.right{background:#e6f6ec;border-color:#166534}.opt.wrong{background:#fdeaea;border-color:#b42318}
+.sos{background:#b42318;color:#fff;border:0;border-radius:12px;padding:12px;font:700 15px inherit;cursor:pointer}
+.chk{display:flex;gap:8px;align-items:center;border:1px solid #dde4f0;border-radius:10px;padding:8px 10px;cursor:pointer}
+.chk.done{background:#e6f6ec;text-decoration:line-through;color:#5a6784}
+.bar{height:6px;background:#dde4f0;border-radius:4px;overflow:hidden}.bar i{display:block;height:100%;background:#1d4ed8}
+.ph-in{display:flex;gap:6px;padding:8px 12px;border-top:1px solid #dde4f0}
+.ph-in input{flex:1;border:1px solid #dde4f0;border-radius:999px;padding:8px 12px;font:inherit}
+.ph-in button{border:0;background:#1d4ed8;color:#fff;border-radius:999px;padding:0 14px;font-weight:600;cursor:pointer}
+.ref{font-size:13px;color:var(--mut)}.ref p{padding-left:24px;text-indent:-24px}
+footer{text-align:center;color:var(--mut);font-size:13px;padding:30px 20px 50px}
+.final{background:var(--dk);color:#fff;border-radius:24px;padding:50px 30px;text-align:center}
+.final h2{max-width:720px;margin:10px auto 16px}.final .chips{justify-content:center}
+</style></head><body>
+<nav><b><span class="logo">M</span>Motivo</b><a href="#problem">Problem</a><a href="#sydney">Sydney</a><a href="#users">Users</a><a href="#evidence">Evidence</a><a href="#design">Design</a><a href="#solution">Try it</a><a href="#trust">Trust</a><a href="#sources">Sources</a></nav>
+
+<section><div class="hero"><div>
+<div class="eye">MQBS1000 · Assessment 3 · Group pitch</div>
+<h1>Motivo</h1>
+<p style="font-size:20px;font-weight:600;color:var(--pri)">Driving knowledge, made clear.</p>
+<p class="mut" style="font-size:17px">A visual, interactive and AI-supported driving guide for new and inexperienced drivers in Australia — starting in NSW.</p>
+<a class="btn" href="#solution">Try the prototype</a>
+<div class="team"><small>PRESENTED BY</small>MD Ashiquzzaman Dipto · Niraj Goonasekera · Krish Mudaliar · Jaereum Choi · Haotong Xiong<br><span class="mut">Macquarie Business School · Session 2, 2026</span></div>
+</div>
+<div class="phone ph" id="heroPhone"><div class="ph-top"><span>9:41</span><span>●●●</span></div><div class="ph-body">
+<span style="color:#5a6784">Good evening</span><h4>How can I help?</h4>
+<div class="bub ai" style="font-size:12px">✔ Verified NSW sources</div>
+<div class="tiles"><div class="tile"><b>🎓 Learn</b></div><div class="tile"><b>P Parking</b></div><div class="tile"><b>$ Fines</b></div><div class="tile"><b>⚠ Accident</b></div></div>
+<div class="tile"><span style="color:#5a6784;font-size:11px">Continue lesson</span><b>Roundabouts</b><div class="bar" style="margin-top:6px"><i style="width:60%"></i></div></div>
+<div class="bub ai">“Can I park here?”</div></div>
+<div class="ph-tabs"><button class="on">Home</button><button>Learn</button><button>Ask</button><button>Settings</button></div></div></div></section>
+
+<section id="problem"><div class="eye">01 — The problem</div><h2>The rules exist. Applying them is hard.</h2>
+<div class="grid g2"><div class="card"><h3>Where the answers live today</h3><p>Official road-rules pages. Accurate and authoritative — but spread across many pages and written in formal terms.</p></div>
+<div><h3 style="margin:0 0 10px">What new drivers need in the moment</h3><div class="q">“Can I park here at 6:30 pm?”</div><div class="q">“What should I do at this roundabout?”</div><div class="q">“I got a parking fine. What now?”</div><div class="q">“Someone hit my parked car — what now?”</div></div></div>
+<div class="band"><span>What if road rules were easier to learn through <b>pictures, short videos, animations and practical examples</b> — instead of long written explanations?</span><span class="tag">That’s Motivo →</span></div></section>
+
+<section id="sydney"><div class="eye">01 — Why start in Sydney</div><h2>Sydney can be a demanding place to drive</h2>
+<div class="grid g3"><div class="card"><div class="stat">43.7%</div><p>average congestion level in Sydney<br>TomTom Traffic Index, 2025</p></div><div class="card"><div class="stat">93 hrs</div><p>estimated time lost per driver in rush-hour traffic over the year<br>TomTom Traffic Index, 2025</p></div><div class="card"><div class="stat">#1</div><p>highest driver-stress score of the Australian cities assessed (56.54)<br>Compare the Market, 2026 — private composite index</p></div></div>
+<div class="grid g2" style="margin-top:16px"><div class="card"><p>UNSW transport-health expert Dr Christopher Standen has explained that sitting in congestion causes stress. — UNSW, 2024</p></div><div class="note" style="margin:0">Indicators of demanding conditions — not proof that every driver feels stressed.</div></div></section>
+
+<section id="users"><div class="eye">02 — Users &amp; stakeholders</div><h2>Who are we designing for?</h2>
+<div class="grid g3">
+<div class="card"><h3>🎓 First-time learners</h3><p>Teens and adults learning signs, roundabouts, parking and safe-driving basics.</p></div>
+<div class="card"><h3>🔑 Learner &amp; provisional drivers</h3><p>Scenario practice, refreshers and clear licence conditions.</p></div>
+<div class="card"><h3>🕓 Returning drivers</h3><p>A refresher on current rules, signs and parking after a long break.</p></div>
+<div class="card"><h3>🌏 International students &amp; newcomers</h3><p>Need to spot what’s different in NSW rules, parking and licensing.</p></div>
+<div class="card"><h3>🏠 Interstate movers</h3><p>Can drive, but need NSW parking, tolls, fines, licence and crash rules.</p></div></div>
+<div class="dark" style="margin-top:16px"><div class="eye" style="color:#9db8ff">Wider stakeholders</div><p style="margin:8px 0">Need accurate information and links to legitimate support.</p>
+<div class="chips"><span class="chip">Driving instructors &amp; schools</span><span class="chip">Councils</span><span class="chip">Road-safety authorities</span><span class="chip">Insurers</span><span class="chip">Other road users</span></div></div></section>
+
+<section id="evidence"><div class="eye">03 — Research &amp; evidence</div><h2>What the evidence does and doesn’t show</h2>
+<div class="tbl"><table><tr><th>Source</th><th>What it reports</th><th>What it doesn’t prove</th></tr>
+<tr><td>TomTom Traffic Index (2025)</td><td>43.7% average congestion; ~93 hrs lost in rush hour</td><td>Measures congestion, not stress</td></tr>
+<tr><td>UNSW (2024)</td><td>Expert: sitting in congestion causes stress</td><td>An expert view, not a driver survey</td></tr>
+<tr><td>Compare the Market (2026)</td><td>Sydney highest driver-stress score of Australian cities (56.54)</td><td>Private composite index, not official</td></tr>
+<tr><td>NSW Government (2026)</td><td>1,270,450 council parking fines statewide, 2025–26</td><td>Doesn’t show why fines were issued</td></tr>
+<tr><td>NSW Government (n.d.)</td><td>Official rules on parking, fines, crashes and licensing</td><td>Authoritative, but spread across pages</td></tr></table></div>
+<div class="dark" style="margin-top:16px"><div class="eye" style="color:#9db8ff">Next step · planned</div><h3 style="margin:6px 0">Primary research with new drivers</h3>
+<ol><li>Survey 30–50 potential users or run short interviews (exploratory sample)</li><li>Ask which rules, signs and situations they find confusing</li><li>Test whether visual learning helps them understand</li></ol>
+<p style="margin:0;color:#b9c8ee">No results yet — findings will come from our own research.</p></div></section>
+
+<section id="design"><div class="eye">04 — Design thinking</div><h2>From problem to opportunity</h2>
+<div class="grid g2"><div><h3 style="margin-top:0">Options we considered first</h3><div class="grid">
+<div class="card"><h3>🌐 Website</h3><p>Still long text — hard to apply on the spot</p></div>
+<div class="card"><h3>📘 PDF rule guides</h3><p>Static and formal; easy to get lost in</p></div>
+<div class="card"><h3>▶ Tutorial videos</h3><p>Helpful, but not interactive or searchable</p></div></div></div>
+<div><h3 style="margin-top:0">Where AI adds value</h3><div class="grid">
+<div class="card"><h3>Plain-language answers</h3><p>Official rules in everyday words</p></div>
+<div class="card"><h3>Source-grounded (RAG)</h3><p>Answers built from current NSW sources</p></div>
+<div class="card"><h3>Sign photo support</h3><p>Reads a sign, then asks for context</p></div>
+<div class="card"><h3>Personalised practice</h3><p>More scenarios on topics you find hard</p></div></div></div></div></section>
+
+<section id="solution"><div class="eye">05 — Our solution</div><h2>Meet Motivo</h2>
+<div class="hero" style="grid-template-columns:1fr 1fr">
+<div><p class="mut" style="font-size:17px">A visual, interactive and AI-supported driving guide — short lessons, explainers and everyday help in one app.</p>
+<div class="grid">
+<div class="card"><h3>🎓 Learn</h3><p>Bite-sized NSW lessons with video and animation</p></div>
+<div class="card"><h3>P Parking</h3><p>Explains parking signs; scan a sign for context</p></div>
+<div class="card"><h3>$ Fines</h3><p>Pay, review, deadlines</p></div>
+<div class="card"><h3>⚠ Accident help</h3><p>Safety-first checklist, when to call police, NSW crash guidance</p></div>
+<div class="card"><h3>💬 Ask Motivo</h3><p>AI answers with sources</p></div>
+<div class="card"><h3>👥 Find an instructor</h3><p>Licensed instructors · NSW first, other states later</p></div></div>
+<div class="note">Illustrative mock-up — not the final product. Answers below are scripted examples, not live AI.</div></div>
+<div><div class="phone ph" id="app"></div><p class="mut" style="text-align:center;margin-top:12px;font-size:13px">↑ Tap around: ask a question, scan a sign, take the parking quiz, check fine steps, or open accident help.</p></div></div></section>
+
+<section id="trust"><div class="eye">06 — Responsible AI &amp; evaluation</div><h2>Built to be trusted — and tested</h2>
+<div class="grid g2"><div><h3 style="margin-top:0">Risks we must manage</h3><div class="tbl"><table style="min-width:0"><tr><th>Risk</th><th>How we reduce it</th></tr>
+<tr><td>Wrong or outdated answer</td><td>Verified NSW sources, citations shown, regular content review</td></tr>
+<tr><td>Misread parking sign</td><td>Show uncertainty, ask for time and place, check nearby signs</td></tr>
+<tr><td>Unsafe accident advice</td><td>Pre-reviewed safety-first checklist; emergencies go to 000</td></tr>
+<tr><td>Privacy of photos and data</td><td>Collect only what’s needed; don’t keep photos unnecessarily</td></tr>
+<tr><td>Over-reliance on AI</td><td>Show limits; never replaces instructors, police or officials</td></tr></table></div></div>
+<div><h3 style="margin-top:0">How we’ll test the prototype</h3><div class="grid">
+<div class="card"><h3>✔ Accuracy</h3><p>Matches current NSW guidance</p></div>
+<div class="card"><h3>✔ Task completion</h3><p>Finds and understands the answer</p></div>
+<div class="card"><h3>⏱ Time to answer</h3><p>How long to reach it</p></div>
+<div class="card"><h3>👍 Confidence</h3><p>Feels more confident afterwards</p></div>
+<div class="card"><h3>★ Usefulness</h3><p>Would use or recommend it</p></div></div></div></div>
+<div class="dark" style="margin-top:16px"><div class="eye" style="color:#9db8ff">Next steps</div><div class="chips"><span class="chip">01 Gather feedback</span>→<span class="chip">02 Build a prototype</span>→<span class="chip">03 Test real tasks</span></div></div>
+<div class="note">⚠ Never used while driving. In an emergency, call 000.</div></section>
+
+<section><div class="final"><div class="eye" style="color:#9db8ff">The key message</div>
+<h2>Motivo makes trusted NSW driving knowledge easier to understand and apply.</h2>
+<p style="color:#c5d3f5">Not just for people new to Australia — for anyone who is new to driving.</p>
+<div class="chips"><span class="chip">Visual learning</span><span class="chip">AI answers with sources</span><span class="chip">Safety first</span><span class="chip">NSW to start</span></div>
+<p style="margin-top:24px;font-weight:600">Thank you — questions welcome</p></div></section>
+
+<section id="sources"><div class="eye">Sources</div><h2>References (APA 7)</h2><div class="ref">
+<p>Anthropic. (2026). Claude (Opus 5.5) [Large language model]. Used to assist with slide design and layout. <a href="https://claude.ai">https://claude.ai</a></p>
+<p>Compare the Market. (2026). The most stressful cities to drive in. <a href="https://www.comparethemarket.com.au/car-insurance/features/most-stressful-countries-to-drive-in/">https://www.comparethemarket.com.au/car-insurance/features/most-stressful-countries-to-drive-in/</a></p>
+<p>NSW Government. (2026, September 27). Minns Labor Government to tighten ticketless parking fine rules amid 87% drop in 2025–26. <a href="https://www.nsw.gov.au/ministerial-releases/ticketless-parking-fines-tightened">https://www.nsw.gov.au/ministerial-releases/ticketless-parking-fines-tightened</a></p>
+<p>NSW Government. (n.d.). Driving instructor licences. <a href="https://www.nsw.gov.au/business-and-economy/licences-and-credentials/driving-instructors">https://www.nsw.gov.au/business-and-economy/licences-and-credentials/driving-instructors</a></p>
+<p>NSW Government. (n.d.). Parking rules. Retrieved November 3, 2026, from <a href="https://www.nsw.gov.au/driving-boating-and-transport/driving-nsw/roads-safety-and-rules/parking/parking-rules">https://www.nsw.gov.au/driving-boating-and-transport/driving-nsw/roads-safety-and-rules/parking/parking-rules</a></p>
+<p>NSW Government. (n.d.). Road rules and safety. <a href="https://www.nsw.gov.au/driving-boating-and-transport/roads-safety-and-rules">https://www.nsw.gov.au/driving-boating-and-transport/roads-safety-and-rules</a></p>
+<p>NSW Government. (n.d.). What to do at a road crash. <a href="https://www.nsw.gov.au/driving-boating-and-transport/driving-nsw/roads-safety-and-rules/warnings-and-hazards/crashes">https://www.nsw.gov.au/driving-boating-and-transport/driving-nsw/roads-safety-and-rules/warnings-and-hazards/crashes</a></p>
+<p>TomTom. (2025). Sydney traffic report. TomTom Traffic Index. <a href="https://www.tomtom.com/traffic-index/city/sydney/">https://www.tomtom.com/traffic-index/city/sydney/</a></p>
+<p>University of New South Wales. (2024, July 15). Stress, lethargy, congestion: The unhealthy symptoms of Sydney’s transport system. <a href="https://www.unsw.edu.au/newsroom/news/2024/07/stress-lethargy-congestion-unhealthy-symptoms-sydneys-transport-system">https://www.unsw.edu.au/newsroom/news/2024/07/stress-lethargy-congestion-unhealthy-symptoms-sydneys-transport-system</a></p></div></section>
+<footer>Motivo · MQBS1000 Assessment 3 · Macquarie Business School</footer>
+
+<script>
+const $=s=>document.querySelector(s);
+const ANS={
+"Can I park here at 6:30 pm?":["It depends on the sign. A 2P, 8am–6pm Mon–Fri sign stops applying at 6 pm, so 6:30 pm may be fine — but check nearby signs and what day it is.","NSW parking rules"],
+"I got a parking fine. What now?":["Check the details on the notice first. Then pay by the due date, or request a review if you think it’s wrong.","NSW Gov — fines"],
+"What do I do at a roundabout?":["Slow down, give way to vehicles already in the roundabout, and signal when leaving.","NSW road rules"],
+"📷 Scan a sign":["I can’t be sure from a photo alone. What day and time are you parking, and where? Please also check nearby signs.","Sign photo support"]};
+const QS=Object.keys(ANS);
+const state={tab:"Home",chat:[],quiz:null,chk:[0,0,0]};
+const CHK=["Move to a safe place if you can","Know when to call police","Swap driver details","Contact your insurer"];
+function ask(q){const k=q.toLowerCase();const m=/fine|ticket/.test(k)?QS[1]:/roundabout/.test(k)?QS[2]:/park/.test(k)?QS[0]:/sign|photo/.test(k)?QS[3]:null;const a=ANS[q]||(m&&ANS[m])||["I’m not sure — I can only answer a few scripted examples in this demo. In real use I’d show my uncertainty and cite NSW sources.","Source: NSW Gov"];
+state.tab="Ask";state.chat.push(["me",q],["ai",a[0],a[1]]);render()}
+function render(){const t=state.tab;let b="";
+if(t==="Home")b=`<span style="color:#5a6784">Good evening</span><h4>How can I help?</h4><div class="bub ai" style="font-size:12px">✔ Verified NSW sources</div>
+<div class="tiles"><button class="tile" data-go="Learn"><b>🎓 Learn</b></button><button class="tile" data-go="Parking"><b>P Parking</b></button><button class="tile" data-go="Fines"><b>$ Fines</b></button><button class="tile" data-go="Accident"><b>⚠ Accident</b></button></div>
+<button class="tile" data-go="Ask"><b>💬 Ask Motivo</b>“Can I park here?”</button>`;
+if(t==="Ask"){b=`<div class="bub ai">Hi! Ask me about NSW driving rules.<br><span class="src">✔ Verified NSW sources</span></div>`+state.chat.map(m=>m[0]==="me"?`<div class="bub me">${m[1]}</div>`:`<div class="bub ai">${m[1]}<br><span class="src">Source: ${m[2]}</span></div>`).join("")+QS.map(q=>`<button class="sug" data-q="${q}">${q}</button>`).join("")}
+if(t==="Parking"){const q=state.quiz;b=`<h4 style="font-size:16px">‹ Parking · 3 / 8</h4><b>Can I park here at 6:30 pm on a Tuesday?</b><div class="sign"><big>2P</big>8am–6pm<br>MON–FRI</div>`+
+[["Yes, you can park",1,"Correct — 2P ends at 6 pm. Check nearby signs too."],["No — 2-hour limit",0,"Not quite — the 2-hour limit only applies 8am–6pm."]].map((o,i)=>`<button class="opt ${q===null?"":(o[1]?"right":(q===i?"wrong":""))}" data-z="${i}">${o[0]}</button>`).join("")+(q!==null?`<div class="bub ai">${q===0?"Correct — 2P ends at 6 pm. Check nearby signs too.":"Not quite — the 2-hour limit only applies 8am–6pm. Check nearby signs too."}<br><span class="src">NSW parking rules</span></div>`:"")}
+if(t==="Learn")b=`<h4>Learn</h4><div class="tile"><b>Roundabouts</b><div class="bar" style="margin:6px 0"><i style="width:60%"></i></div>60% · Continue</div><div class="tile"><b>Parking signs</b>▶ 0:15 clip</div><div class="tile"><b>School zones</b>Not started</div><div class="tile"><b>Tolls</b>Not started</div>`;
+if(t==="Accident")b=`<span class="src" style="align-self:flex-start;background:#fdeaea;color:#b42318">ACCIDENT HELP</span><h4 style="font-size:17px">First, make sure everyone is safe.</h4><button class="sos" data-sos>Anyone hurt or in danger? Call 000</button>${state.sos?'<div class="note" style="font-size:12px;margin:0">Demo only — in a real emergency, dial 000 now.</div>':""}<b>When it’s safe:</b>`+CHK.map((c,i)=>`<div class="chk ${state.chk[i]?"done":""}" data-c="${i}">${state.chk[i]?"☑":"☐"} ${c}</div>`).join("")+`<span class="src">NSW crash guidance</span>`;
+if(t==="Fines")b=`<h4>Fines</h4><div class="bub me">I got a parking fine. What now?</div><b>Here’s what to do:</b><div class="tile"><b>1 · Check the details</b>Offence, date, location</div><div class="tile"><b>2 · Pay by the due date</b>Avoid late penalties</div><div class="tile"><b>3 · Or request a review</b>If you think it’s wrong</div><span class="src">Source: NSW Gov</span><button class="sug" data-q="I got a parking fine. What now?">Ask Motivo about this</button>`;
+if(t==="Settings")b=`<h4>Settings</h4><div class="tile">Region: NSW (other states later)</div><div class="tile">Photos: not kept unnecessarily</div><div class="note" style="font-size:12px">Never used while driving. In an emergency, call 000.</div>`;
+const tabs=["Home","Learn","Parking","Fines","Ask","Accident"];
+$("#app").innerHTML=`<div class="ph-top"><span>9:41</span><span>●●●</span></div><div class="ph-body" id="pb">${b}</div>`+(t==="Ask"?`<div class="ph-in"><input id="in" placeholder="Ask about a rule…"><button data-send>Send</button></div>`:"")+`<div class="ph-tabs">${tabs.map(x=>`<button class="${x===t?"on":""}" data-go="${x}">${x}</button>`).join("")}</div>`;
+const pb=$("#pb");pb.scrollTop=pb.scrollHeight}
+$("#app").addEventListener("click",e=>{const el=e.target.closest("[data-go],[data-q],[data-z],[data-c],[data-sos],[data-send]");if(!el)return;
+const d=el.dataset;if("go"in d){state.tab=d.go;render()}else if("q"in d)ask(d.q);else if("z"in d){state.quiz=+d.z;render()}else if("c"in d){state.chk[d.c]^=1;render()}else if("sos"in d){state.sos=1;render()}else if("send"in d){const v=$("#in").value.trim();if(v)ask(v)}});
+$("#app").addEventListener("keydown",e=>{if(e.key==="Enter"&&e.target.id==="in"){const v=e.target.value.trim();if(v)ask(v)}});
+render();
+</script></body></html>
